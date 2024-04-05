@@ -1,0 +1,64 @@
+/* Estilos para o título de jogos favoritos */
+.title-favorites {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/* Estilos para o contêiner do Slider */
+.slick-slider {
+    margin-top: 2rem;
+}
+
+/* Estilos para os cartões de jogos */
+.slick-slide {
+    margin-right: 15px;
+}
+
+/* Estilos para as imagens dos jogos no Slider */
+.slick-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 200px;
+}
+
+/* Estilos para o título dos jogos no Slider */
+.slick-slide h3 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: white;
+    text-align: center;
+}
+
+/* Estilos para os pontos de navegação do Slider */
+.slick-dots {
+    position: absolute;
+    bottom: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.slick-dots li {
+    margin: 0 5px;
+}
+
+.slick-dots li button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+    background-color: #fff;
+}

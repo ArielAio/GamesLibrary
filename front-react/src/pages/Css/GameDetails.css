@@ -1,0 +1,88 @@
+/* Estilos gerais para a seção de detalhes do jogo */
+.game-details {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(145deg, #2c2c54, #1b1b38);
+    color: #f8f8f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.game-details:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilos para o título do jogo */
+.game-title {
+    font-size: 2.5rem;
+    color: #9381FF;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para a imagem do jogo */
+.game-image {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.game-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para a classificação do jogo */
+.game-rating {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff79c6;
+}
+
+/* Estilos para o ícone de classificação do jogo */
+.game-rating svg {
+    fill: #ffe46e;
+    margin-right: 0.3rem;
+}
+
+/* Estilos para os detalhes da plataforma */
+.platform-details {
+    margin-top: 30px;
+    background: linear-gradient(145deg, #44475a, #2c2c54);
+    padding: 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.platform-details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para os parágrafos dentro do cartão do jogo */
+.game-card p {
+    font-weight: bold;
+}
+
+/* Estilos para o nome da plataforma */
+.platform-name {
+    font-size: 1.5rem;
+    color: #bd93f9;
+    margin-bottom: 10px;
+}
+
+/* Estilos para a data de lançamento da plataforma */
+.platform-released {
+    font-style: italic;
+    color: #f8f8f2;
+    margin-bottom: 5px;
+}
+
+/* Estilos para os requisitos da plataforma */
+.platform-requirements {
+    font-weight: bold;
+    color: #f8f8f2;
+}

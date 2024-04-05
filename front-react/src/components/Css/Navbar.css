@@ -1,0 +1,16 @@
+/* Estilos para a barra de navegação */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgb(14, 14, 14);
+}
+
+/* Estilos para os links dentro do título da barra de navegação */
+#navbar h2 a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #9483ff;
+}

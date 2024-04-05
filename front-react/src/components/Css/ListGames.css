@@ -1,0 +1,174 @@
+/* Estilos para o contêiner */
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para o título */
+.container .title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+/* Estilos para o formulário dentro do contêiner */
+.container form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para o input de pesquisa */
+.container input {
+    width: 100%;
+    max-width: 400px;
+    height: 2.5rem;
+    padding: .2rem .8rem;
+    border-radius: 4px;
+    border: none;
+    margin-right: .5rem;
+}
+
+/* Estilos para o botão de pesquisa */
+.container form button {
+    background-color: #6252ce;
+    border: 2px solid #6252ce;
+    border-radius: 4px;
+    color: black;
+    padding: .3rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: .4s;
+    padding-bottom: .1rem;
+    width: 4rem;
+}
+
+.container form button:hover {
+    background-color: transparent;
+    color: #6252ce;
+}
+
+/* Estilos para o contêiner dos jogos */
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para os cartões de jogos */
+.games-container .game-card {
+    width: calc(33.33% - 1rem);
+    color: white;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1f1b3527;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 767px) {
+    .games-container .game-card {
+        width: calc(50% - 1rem);
+        margin-bottom: 1rem;
+    }
+}
+
+/* Ajustes para telas ainda menores */
+@media (max-width: 480px) {
+    .games-container .game-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Estilos para as imagens dos jogos */
+.games-container .game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+/* Estilos adicionais para elementos dentro dos cartões de jogos */
+.games-container .game-card img,
+.games-container .game-card h2,
+.games-container .game-card p {
+    margin-bottom: 1rem;
+    
+}
+.game-card p{
+    color: yellow;
+}
+
+/* Estilos para o botão de detalhes */
+.games-container .details-button {
+    background-color: #6252ce;
+    border: 2px solid #6252ce;
+    border-radius: 4px;
+    color: black;
+    padding: .3rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: .4s;
+    padding-bottom: .3rem;
+    width: 100%;
+}
+
+
+.games-container .details-button:hover {
+    background-color: transparent;
+    color: #6252ce;
+}
+
+/* Estilos para o contêiner de carregamento */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+/* Estilos para o spinner */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #000;
+    width: 36px;
+    height: 36px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (min-width: 768px) {
+    .games-container .game-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+/* Estilos para os cartões de jogos em telas menores */
+@media (max-width: 767px) {
+    .games-container .game-card {
+        width: 100%;
+    }
+}
