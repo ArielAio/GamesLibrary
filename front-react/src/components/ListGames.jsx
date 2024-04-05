@@ -76,20 +76,15 @@ function ListGames() {
             <div className='games-container'>
                 {games.map((game, index) => (
                     <div key={game.id} className="game-card" onClick={() => goToGameDetails(game)}>
-                        <h2>{game.name}</h2>
+                        <h2 className='nameGame'>{game.name}</h2>
                         {game.background_image && (
                             <img src={game.background_image} alt="Imagem do jogo" />
                         )}
                         {game.rating !== undefined && (
-                            <p>
-                                <FaStar /> {game.rating}
+                            <p className='rate'>
+                                <FaStar className='star' /> {game.rating}
                             </p>
                         )}
-                        <button
-                            onClick={() => goToGameDetails(game)}
-                            className="details-button">
-                            Detalhes
-                        </button>
                     </div>
                 ))}
             </div>

@@ -6,16 +6,18 @@
 }
 
 body {
-    background-color: #090302;
+    background: rgb(11,11,22);
+background: linear-gradient(0deg, rgba(11,11,22,1) 83%, rgba(32,32,110,1) 100%);
+    background-size: cover;
     color: white;
 }
 
-a { 
+a {
     text-decoration: none;
     color: #9381FF;
     transition: .5s;
 }
 
-a:hover{
+a:hover {
     color: #53488d;
 }

@@ -1,7 +1,7 @@
 /* Estilos para o contêiner */
 .container {
     padding: 2rem;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -11,6 +11,20 @@
     margin-bottom: 20px;
     color: white;
     font-size: 2.5rem;
+}
+
+.rate {
+    font-weight: bold;
+}
+
+/* Estilos da avaliação (estrela)*/
+.rate .star {
+    color: yellow;
+    margin-top: .3rem;
+    margin-bottom: .5rem;
+    width: 50%;
+    display: flex;
+    margin-right: .5rem;
 }
 
 /* Estilos para o formulário dentro do contêiner */
@@ -43,6 +57,7 @@
     transition: .4s;
     padding-bottom: .1rem;
     width: 4rem;
+    height: 2.5rem;
 }
 
 .container form button:hover {
@@ -53,6 +68,7 @@
 /* Estilos para o contêiner dos jogos */
 .games-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 2rem;
@@ -60,44 +76,47 @@
     margin: 0 auto;
 }
 
+.games-container h2 {
+    font-size: .8rem;
+}
+
 /* Estilos para os cartões de jogos */
 .games-container .game-card {
     width: calc(33.33% - 1rem);
+    flex-basis: calc(33.33% - 1rem);
     color: white;
     margin-bottom: 2rem;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #1f1b3527;
+    background-color: #0000004f;
     padding: 1rem;
     border-radius: 1rem;
-    text-align: center;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    flex-grow: 1;
+    display: flex;
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
-/* Ajustes para telas menores */
-@media (max-width: 767px) {
-    .games-container .game-card {
-        width: calc(50% - 1rem);
-        margin-bottom: 1rem;
-    }
+.games-container .game-card:hover {
+    transform: scale(1.05);
+    /* Aumenta em 5% ao passar o mouse */
 }
 
-/* Ajustes para telas ainda menores */
-@media (max-width: 480px) {
-    .games-container .game-card {
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
+.games-container .game-card:active {
+    transform: scale(0.95);
+    /* Reduz em 5% ao clicar */
 }
+
+
 
 /* Estilos para as imagens dos jogos */
 .games-container .game-card img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
-    max-height: 200px;
     object-fit: cover;
 }
 
@@ -106,11 +125,14 @@
 .games-container .game-card h2,
 .games-container .game-card p {
     margin-bottom: 1rem;
-    
+    flex-grow: 1;
+    padding-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
 }
-.game-card p{
-    color: yellow;
-}
+
 
 /* Estilos para o botão de detalhes */
 .games-container .details-button {
@@ -119,11 +141,13 @@
     border-radius: 4px;
     color: black;
     padding: .3rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     transition: .4s;
     padding-bottom: .3rem;
-    width: 100%;
+    width: 50%;
+    margin: auto;
 }
 
 
@@ -160,15 +184,32 @@
     }
 }
 
-@media (min-width: 768px) {
+/* Ajustes para telas menores */
+@media (max-width: 1024px) {
     .games-container .game-card {
         width: calc(50% - 1rem);
+        /* Ajuste a largura dos cartões para 50% do contêiner com uma margem lateral de 1rem */
     }
 }
 
-/* Estilos para os cartões de jogos em telas menores */
+/* Ajustes para telas ainda menores */
 @media (max-width: 767px) {
     .games-container .game-card {
+        width: calc(50% - 1rem);
+        /* Ajuste a largura dos cartões para 50% do contêiner com uma margem lateral de 1rem */
+        margin-bottom: 1rem;
+        /* Reduza a margem inferior para evitar que os cartões diminuam muito */
+    }
+}
+
+/* Ajustes para telas ainda menores */
+@media (max-width: 480px) {
+    .games-container .game-card {
         width: 100%;
+        /* Largura total para telas menores */
+        margin-left: 0;
+        /* Remova a margem esquerda */
+        margin-right: 0;
+        /* Remova a margem direita */
     }
 }

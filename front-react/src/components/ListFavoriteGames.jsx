@@ -32,7 +32,6 @@ function ListFavoriteGames() {
 
     const sliderSettings = {
         // Configurações do Slider
-        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -44,7 +43,6 @@ function ListFavoriteGames() {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     infinite: true,
-                    dots: true
                 }
             },
             {

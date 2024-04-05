@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 
 import "./Css/GameDetails.css";
 
+
 // Componente funcional Game para exibir detalhes do jogo
 const Game = () => {
     // Obtém os dados do jogo da localização
