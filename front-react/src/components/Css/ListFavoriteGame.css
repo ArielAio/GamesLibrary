@@ -7,11 +7,17 @@
     flex-grow: 1;
 }
 
-/* Estilos para os cartões de jogos */
 .game-card {
     padding: 1rem;
     margin-right: 10px;
     cursor: pointer;
+    transition: transform 0.3s ease; /* Adicionando transição de escala */
+}
+
+/* Quando o cartão for clicado, aumente levemente */
+.game-card:hover,
+.game-card:focus {
+    transform: scale(1.15);
 }
 
 /* Estilos para o contêiner do Slider */
