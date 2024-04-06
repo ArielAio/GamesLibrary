@@ -57,7 +57,7 @@ function ListFavoriteGames() {
 
     // Função para navegar para os detalhes do jogo
     const goToGameDetails = (game) => {
-        navigate(`/game/${game.id}`, { state: { game } });
+        navigate(`/game/${game.slug}`, { state: { game } });
     };
 
     return (

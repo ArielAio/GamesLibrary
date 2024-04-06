@@ -32,7 +32,7 @@ function ListGames() {
 
     // Função para navegar para os detalhes do jogo
     const goToGameDetails = (game) => {
-        navigate(`/game/${game.id}`, { state: { game } });
+        navigate(`/game/${game.slug}`, { state: { game } });
     };
 
     // Função para lidar com a pesquisa de jogos
@@ -54,7 +54,7 @@ function ListGames() {
 
     return (
         <div className="container">
-
+           
             <h1 className="title">Buscar</h1>
             <form onSubmit={handleSearch}>
                 <input

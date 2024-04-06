@@ -1,64 +1,153 @@
-/* Estilos gerais para a seção de detalhes do jogo */
 .game-details {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    color: #f8f8f2;
+}
+
+.game-container {
+    background: rgb(11, 11, 22);
+    background: linear-gradient(0deg, rgba(11, 11, 22, 1) 83%, rgba(32, 32, 110, 1) 100%);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    margin: 20px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    /* Ajuste para largura total com padding */
+    max-width: 1200px;
+    /* Aumento do max-width para melhor aproveitamento em telas maiores */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.game-details:hover {
-    transform: translateY(-5px);
-}
-
-
-/* Estilos para o título do jogo */
 .game-title {
-    font-size: 2.5rem;
-    color: #9381FF;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Estilos para a imagem do jogo */
-.game-image {
-    width: 50%;
-    height: 50%;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.game-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-}
-
-/* Estilos para a classificação do jogo */
-.game-rating {
-    font-weight: bold;
-    margin-bottom: 10px;
     color: #ffffff;
+    /* Branco com baixa opacidade */
+    margin-bottom: 10px;
 }
 
-/* Estilos para o ícone de classificação do jogo */
-.game-rating svg {
-    fill: #ffe46e;
-    margin-right: 0.3rem;
-}
-
-/* Estilos para os detalhes da plataforma */
-.platform-details {
-    margin-top: 30px;
-    background: linear-gradient(145deg, #44475a, #2c2c54);
-    padding: 15px;
+.game-image {
+    width: 100%;
+    height: auto;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
-.platform-details:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+.game-rating {
+    display: flex;
+    /* Alinha os elementos horizontalmente */
+    flex-wrap: wrap;
+    /* Permite a quebra de linha dos elementos */
+    justify-content: space-between;
+    /* Distribui o espaço uniformemente */
+    align-items: center;
+    /* Alinha os itens verticalmente */
+    margin-bottom: 20px;
 }
 
+.game-rating p {
+    color: #ffffff;
+    /* Branco */
+    margin-right: 20px;
+    /* Espaçamento entre os elementos */
+}
 
+.game-rating .star {
+    color: #ffd900;
+    font-size: 20px;
+    margin-right: .5rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    background-color: #210e2e9c;
+    /* Preto mais claro para os itens da lista */
+    color: #fff;
+    /* Branco para o texto */
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* Estilo para o ícone de estrela do rating */
+.star {
+    color: #ffd900;
+    /* Amarelo para a estrela */
+}
+
+.game-rating a {
+    display: flex;
+    align-items: center;
+    /* Alinha ícone e texto verticalmente */
+    color: #9c27b0;
+    /* Roxo */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+}
+
+.game-rating a:hover {
+    text-decoration: underline;
+}
+
+.platforms,
+.genres,
+.description {
+    margin-top: 2rem;
+}
+
+.platforms h2,
+.genres h2,
+.description h2 {
+    margin-bottom: .5rem;
+}
+
+.metacriticIco,
+.redditIco,
+.websiteIco {
+    margin-left: .5rem;
+}
+
+.icons {
+    margin-top: .5rem;
+}
+
+/* Estilos para o contêiner de carregamento */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+/* Estilos para o spinner com ícone de joystick */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #6252ce;
+    /* Cor verde para simular uma barra de vida */
+    width: 36px;
+    height: 36px;
+    animation: spin 2s linear infinite;
+    position: relative;
+}
+
+/* Adicionando o ícone do joystick */
+.spinner::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
