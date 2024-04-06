@@ -27,6 +27,30 @@
     margin-right: .5rem;
 }
 
+.genre-card {
+    display: flex;
+    justify-content: center;
+    /* centraliza os gêneros horizontalmente */
+    flex-wrap: wrap;
+    /* permite que os gêneros sejam dispostos em várias linhas se necessário */
+}
+
+.genre {
+    display: inline-block;
+    padding: 10px 10px;
+    margin: 5px;
+    /* espaço entre os gêneros */
+    border-radius: 20px;
+    /* para criar um formato circular */
+    background-color: #6A5ACD;
+    /* roxo escuro */
+    color: #FFF;
+    ;
+    /* cor do texto branco */
+}
+
+
+
 /* Estilos para o formulário dentro do contêiner */
 .container form {
     display: flex;

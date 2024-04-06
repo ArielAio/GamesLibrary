@@ -93,7 +93,8 @@ li {
 
 .platforms,
 .genres,
-.description {
+.description,
+.requirements {
     margin-top: 2rem;
 }
 

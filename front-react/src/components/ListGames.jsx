@@ -54,7 +54,7 @@ function ListGames() {
 
     return (
         <div className="container">
-           
+
             <h1 className="title">Buscar</h1>
             <form onSubmit={handleSearch}>
                 <input
@@ -85,6 +85,11 @@ function ListGames() {
                                 <FaStar className='star' /> {game.rating}
                             </p>
                         )}
+                        <div className="genre-card">
+                            {game.genres.map(genre => (
+                                <li className="genre">{genre}</li>
+                            ))}
+                        </div>
                     </div>
                 ))}
             </div>

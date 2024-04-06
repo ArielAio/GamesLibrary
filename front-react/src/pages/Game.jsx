@@ -43,13 +43,9 @@ const Game = () => {
                     <h1 className="game-title">{game.name}
                         <div className='icons'>
                             <a className='metacriticIco' href={game.metacritic_url}><img width="30" height="30" src="https://img.icons8.com/color/48/metascore.png" alt="metascore" /></a>
-
                             <a className='redditIco' href={game.reddit_url}><img width="30" height="30" src="https://img.icons8.com/fluency/48/reddit.png" alt="reddit" /></a>
-
                             <a className='websiteIco' href={game.website}><img width="30" height="30" src="https://img.icons8.com/color/48/internet--v1.png" alt="internet--v1" /></a>
                         </div>
-
-
                     </h1>
                     <img className="game-image" src={game.background_image} alt={game.name} />
                     <div className="game-rating">
@@ -78,6 +74,16 @@ const Game = () => {
                             <h2>Descrição</h2>
                             <div dangerouslySetInnerHTML={{ __html: game.description }} />
                         </div>
+                        <div className="requirements">
+                            <h2>Requisitos Mínimos</h2>
+                            {game && game.requirements ? (
+                                <div dangerouslySetInnerHTML={{ __html: game.requirements }} />
+                            ) : (
+                                <p>Não encontrado</p>
+                            )}
+                        </div>
+
+
                     </div>
                 </div>
             ))}

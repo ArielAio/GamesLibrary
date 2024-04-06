@@ -18,11 +18,10 @@ class GameController extends Controller
         $this->apiKey = env('API_KEY'); // Obtém a chave de API do arquivo .env
     }
 
-    // Função privada para buscar jogos na API RAWG com base na URL fornecida
     private function fetchGames($url)
     {
         $client = new Client(); // Cria uma instância do cliente HTTP Guzzle
-
+    
         // Tenta fazer uma requisição GET à API RAWG
         try {
             $response = $client->request('GET', $url); // Faz a requisição GET
@@ -33,15 +32,30 @@ class GameController extends Controller
             
             // Seleciona os resultados da resposta e extrai os dados relevantes dos jogos
             foreach ($data['results'] as $game) {
-                $games[] = [ // Adiciona os dados do jogo ao array de jogos
+                $gameData = [ // Array para armazenar os dados do jogo
                     'id' => $game['id'],
                     'name' => $game['name'],
                     'slug' => $game['slug'],
                     'background_image' => $game['background_image'],
                     'released' => $game['released'],
                     'rating' => $game['rating'],
-                    'metacritic' => $game['metacritic']
+                    'metacritic' => $game['metacritic'],
+                    'genres' => []
                 ];
+    
+                // Verifica se 'genres' existe e é um array no jogo atual
+                if (isset($game['genres']) && is_array($game['genres'])) {
+                    // Itera sobre os gêneros do jogo
+                    foreach ($game['genres'] as $genre) {
+                        // Verifica se 'name' existe
+                        if (isset($genre['name'])) {
+                            // Adiciona o nome do gênero ao array genres do jogo atual
+                            $gameData['genres'][] = $genre['name'];
+                        }
+                    }
+                }
+    
+                $games[] = $gameData; // Adiciona os dados do jogo ao array de jogos
             }
             
             return $games; // Retorna os dados dos jogos
@@ -50,7 +64,8 @@ class GameController extends Controller
         }
     }
 
-    private function fetchGame($url){
+    private function fetchGame($url)
+    {
         $client = new Client();
     
         try {
@@ -81,7 +96,8 @@ class GameController extends Controller
                             'metacritic' => $data['metacritic'],
                             'metacritic_url' => $data['metacritic_url'],
                             'platforms' => [], // Inicializa um array vazio para armazenar os nomes das plataformas
-                            'genres' => [] // Inicializa um array vazio para armazenar os nomes dos gêneros
+                            'genres' => [], // Inicializa um array vazio para armazenar os nomes dos gêneros
+                            'requirements' => []
                         ];
     
                         // Verifica se 'genres' existe e é um array
@@ -113,9 +129,23 @@ class GameController extends Controller
                             // Define 'platforms' como null se não estiver presente nos dados
                             $detailGame['platforms'] = null;
                         }
+
+                        // Verifica se 'platforms' existe e é um array
+                        if (isset($data['platforms']) && is_array($data['platforms'])) {
+                            // Itera sobre as plataformas
+                            foreach ($data['platforms'] as $requirements) {
+                                // Verifica se 'platform' e 'name' existem
+                                if (isset($requirements['requirements'], $requirements['requirements']['minimum'])) {
+                                    // Adiciona o nome da plataforma ao array requirements
+                                    $detailGame['requirements'][] = $requirements['requirements']['minimum'];
+                                } 
+                            }
+                        } else {
+                            // Define 'requirements' como null se não estiver presente nos dados
+                            $detailGame['requirements'] = null;
+                        }
     
                         return $detailGame;
-    
                     } else {
                         // JSON inválido
                         return null;
@@ -133,11 +163,9 @@ class GameController extends Controller
             return null;
         }
     }
-    
-    
-    
 
-    public function select($query){
+    public function select($query)
+    {
         $url = "https://api.rawg.io/api/games/{$query}?key={$this->apiKey}"; // URL para a página inicial
         $detailGame = $this->fetchGame($url); // Busca os jogos usando a função fetchGames()
 
@@ -146,10 +174,8 @@ class GameController extends Controller
             return response()->json($detailGame);
         } else {
             return response()->json(['error' => 'Erro ao fazer a requisição à API RAWG'], 500);
-         }
+        }
     }
-
-
 
     // Função para retornar jogos na página inicial
     public function home()
@@ -165,19 +191,19 @@ class GameController extends Controller
         }
     }
 
-     // Função para buscar jogos na API RAWG com base em uma consulta de busca
-     public function search($query)
-     {
-         $url = "https://api.rawg.io/api/games?key={$this->apiKey}&search={$query}"; // URL de busca
-         $games = $this->fetchGames($url); // Busca os jogos usando a função fetchGames()
- 
-         // Verifica se os jogos foram encontrados e retorna uma resposta JSON apropriada
-         if ($games !== null) {
-             return response()->json($games);
-         } else {
-             return response()->json(['error' => 'Erro ao fazer a requisição à API RAWG'], 500);
-         }
-     }
+    // Função para buscar jogos na API RAWG com base em uma consulta de busca
+    public function search($query)
+    {
+        $url = "https://api.rawg.io/api/games?key={$this->apiKey}&search={$query}"; // URL de busca
+        $games = $this->fetchGames($url); // Busca os jogos usando a função fetchGames()
+
+        // Verifica se os jogos foram encontrados e retorna uma resposta JSON apropriada
+        if ($games !== null) {
+            return response()->json($games);
+        } else {
+            return response()->json(['error' => 'Erro ao fazer a requisição à API RAWG'], 500);
+        }
+    }
 
     // Função para retornar jogos favoritos
     public function favorites()
