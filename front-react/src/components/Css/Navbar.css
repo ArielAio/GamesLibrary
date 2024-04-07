@@ -5,7 +5,7 @@
     align-items: center;
     padding: 1rem 2rem;
     background: rgb(0,0,0);
-background: linear-gradient(90deg, rgba(0,0,0,1) 14%, rgba(20,20,69,1) 39%);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 14%, rgba(20,20,69,1) 39%);
 }
 
 /* Estilos para os links dentro do título da barra de navegação */
@@ -14,4 +14,13 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 14%, rgba(20,20,69,1) 39%);
     align-items: center;
     gap: 0.5rem;
     color: #9483ff;
+}
+
+/* Estilos para o ícone de perfil */
+.profile {
+    display: flex;
+    align-items: center;
+    color: #9483ff;
+    width: 35px;
+    height: 100%;
 }

@@ -1,6 +1,7 @@
 //Imports necessários
 import { Link } from "react-router-dom";
 import { IoGameController } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
 
 import "./Css/Navbar.css";
 
@@ -20,6 +21,9 @@ const Navbar = () => {
           <IoGameController />GamesLib
         </Link>
       </h2>
+      <Link to="/register">
+        <FaUserCircle className="profile" />
+      </Link>
     </nav>
   );
 

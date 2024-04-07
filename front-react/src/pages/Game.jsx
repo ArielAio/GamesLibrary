@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+
 import "./Css/GameDetails.css";
 
 const Game = () => {
     const [detailGame, setDetailGame] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate(); // Define a função navigate com o hook useNavigate
 
     const url = window.location.pathname;
     const parts = url.split("/")
@@ -36,6 +39,11 @@ const Game = () => {
         );
     }
 
+    const GoToAddWishList = (game) => {
+        navigate(`/wishlist/${game.name}`, { state: { game } });
+
+    }
+
     return (
         <div className="game-details">
             {detailGame.map((game) => (
@@ -52,6 +60,7 @@ const Game = () => {
                         <p><FaStar className='star' />{game.rating}</p>
                         <p>Metacritic: {game.metacritic}</p>
                         <p>Horas mínimas: {game.playtime} horas</p>
+
                     </div>
                     <div className='moreInfo'>
                         <div className="platforms">
@@ -82,7 +91,7 @@ const Game = () => {
                                 <p>Não encontrado</p>
                             )}
                         </div>
-
+                        <button className='buyGame' onClick={() => GoToAddWishList(game)}>Comprar</button>
 
                     </div>
                 </div>

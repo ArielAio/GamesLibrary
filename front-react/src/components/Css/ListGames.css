@@ -94,7 +94,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -122,6 +123,7 @@
     text-align: center;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    height: 400px;
 }
 
 .games-container .game-card:hover {
@@ -212,25 +214,26 @@
 @media (max-width: 1024px) {
     .games-container .game-card {
         width: calc(50% - 1rem);
-        /* Ajuste a largura dos cartões para 50% do contêiner com uma margem lateral de 1rem */
+        /* Ajuste a largura para 50% do contêiner com uma margem lateral de 1rem */
     }
 }
 
 /* Ajustes para telas ainda menores */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .games-container .game-card {
         width: calc(50% - 1rem);
-        /* Ajuste a largura dos cartões para 50% do contêiner com uma margem lateral de 1rem */
+        /* Aumenta o tamanho dos cartões em telas menores */
+        min-width: 250px;
+        /* Pode ajustar conforme necessário */
         margin-bottom: 1rem;
-        /* Reduza a margem inferior para evitar que os cartões diminuam muito */
     }
 }
 
 /* Ajustes para telas ainda menores */
 @media (max-width: 480px) {
     .games-container .game-card {
-        width: 100%;
-        /* Largura total para telas menores */
+        width: calc(100% - 1rem);
+        /* Ajuste a largura para ocupar toda a largura da tela com uma margem lateral de 1rem */
         margin-left: 0;
         /* Remova a margem esquerda */
         margin-right: 0;

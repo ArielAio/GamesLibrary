@@ -164,65 +164,46 @@ class GameController extends Controller
         }
     }
 
-    public function listGenresAndGames($url)
-{
-    // Criar uma instância do cliente Guzzle
-    $client = new Client();
+//     public function listGenresAndGames($url)
+// {
+//     // Criar uma instância do cliente Guzzle
+//     $client = new Client();
 
-    // Fazer a requisição GET para a API
-    $response = $client->request('GET', $url);
+//     // Fazer a requisição GET para a API
+//     $response = $client->request('GET', $url);
 
-    // Verificar se a requisição foi bem-sucedida (código de status 200)
-    if ($response->getStatusCode() == 200) {
-        // Decodificar o conteúdo da resposta em JSON
-        $data = json_decode($response->getBody(), true);
+//     // Verificar se a requisição foi bem-sucedida (código de status 200)
+//     if ($response->getStatusCode() == 200) {
+//         // Decodificar o conteúdo da resposta em JSON
+//         $data = json_decode($response->getBody(), true);
 
-        // Extrair os resultados da resposta
-        $results = $data['results'];
+//         // Extrair os resultados da resposta
+//         $results = $data['results'];
 
-        // Array para armazenar os gêneros e seus respectivos jogos
-        $gameGenres = [];
+//         // Array para armazenar os gêneros e seus respectivos jogos
+//         $gameGenres = [];
 
-        // Iterar sobre os resultados e exibir as informações
-        foreach ($results as $genre) {
-            $games = [];
-            foreach ($genre['games'] as $game) {
-                $games[] = $game['name'];
-            }
+//         // Iterar sobre os resultados e exibir as informações
+//         foreach ($results as $genre) {
+//             $games = [];
+//             foreach ($genre['games'] as $game) {
+//                 $games[] = $game['name'];
+//             }
 
-            // Adicionar o gênero e seus jogos ao array
-            $gameGenres[] = [
-                'genre' => $genre['name'],
-                'games' => $games
-            ];
-        }
+//             // Adicionar o gênero e seus jogos ao array
+//             $gameGenres[] = [
+//                 'genre' => $genre['name'],
+//                 'games' => $games
+//             ];
+//         }
 
-        // Retornar o array com os gêneros e jogos
-        return $gameGenres;
-    } else {
-        echo "Erro ao obter os dados da API.";
-    }
-}
+//         // Retornar o array com os gêneros e jogos
+//         return $gameGenres;
+//     } else {
+//         echo "Erro ao obter os dados da API.";
+//     }
+// }
 
-
-
-    
-    public function listGenre()
-    {
-        // URL da API para buscar os jogos do gênero "Action"
-        $url = "https://api.rawg.io/api/genres?key={$this->apiKey}";
-    
-        // Realiza a requisição para obter os jogos do gênero "Action"
-        $actionGames = $this->listGenresAndGames($url);
-    
-        // Verifica se os jogos foram encontrados e retorna uma resposta JSON apropriada
-        if ($actionGames !== null) {
-            return response()->json($actionGames);
-        } else {
-            return response()->json(['error' => 'Erro ao fazer a requisição à API RAWG'], 500);
-        }
-    }
-    
     
     public function select($query)
     {
@@ -278,4 +259,7 @@ class GameController extends Controller
             return response()->json(['error' => 'Erro ao fazer a requisição à API RAWG'], 500);
         }
     }
+
+
 }
+
